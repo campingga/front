@@ -3,8 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">TESTTEXT
-    </div>
+    
+    <div className="App" style={{ fontSize: '30px' }}>TESTTEXT</div>
+
   );
 }
 
