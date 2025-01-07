@@ -1,0 +1,1 @@
+export const CAMPING_GA_DOMAIN = 'http://localhost:4000';
