@@ -41,5 +41,8 @@
   "description": "test",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react-dom": "^19.0.2"
+  }
 }
