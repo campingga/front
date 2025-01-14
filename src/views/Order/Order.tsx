@@ -1,8 +1,40 @@
 import styles from "./Order.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Order() {
     const [selectPayBtn, setSelectPayBtn] = useState(0);
+    const [login, setLogin] = useState(false);
+    // 서버로 보낼 데이터 셋
+    // {
+    //     "orderRequestDto": {
+    //       "userId": null,
+    //       "customerName": "홍길동",
+    //       "phoneNumber": "01012345678",
+    //       "email": "hong@naver.com",
+    //       "address": "부산시 사상구 XX대로 12",
+    //       "addressDetail": "XX아파트 101동 101호",
+    //       "zipCode": "123456",
+    //       "orderPassword": "123456",
+    //       "massage": "부재시 문앞 배송",
+    //       "status": 0,
+    //       "finalPrice": 30000,
+    //       "price": 33000
+    //     },
+    //     "products": [
+    //       {
+    //               "productId": 1,
+    //               "count": 1,
+    //               "size": "XL",
+    //               "color": "BLACK"
+    //           },
+    //           {
+    //               "productId": 2,
+    //               "count": 1,
+    //               "size": "L",
+    //               "color": "WHITE"
+    //           }
+    //     ]
+    //   }
 
     return (
         <div className={styles.container}>
@@ -12,16 +44,23 @@ export default function Order() {
             <div className={styles.orderDetailBox}>
                 <span className={styles.subject}>배송지</span>
                 <div className={`${styles.addressBox} ${styles.commonBox}`}>
-                    <div className={styles.nameBox}>
-                        <span className={styles.titleFont}>강호</span>
-                        <button className={styles.addressChangeBtn}>변경</button>
-                    </div>
-                    <div style={{ marginBottom: "3px" }}>
-                        <p className={styles.titleFont}>부산광역시 사상구 XX대로 12 XX아파트 101동 1001호 (123456)</p>
-                    </div>
-                    <div>
-                        <span>010-1234-5678</span>
-                    </div>
+                    {login &&
+                        <>
+                            <div className={styles.nameBox}>
+                                <span className={styles.titleFont}>강호</span>
+                                <button className={styles.addressChangeBtn}>변경</button>
+                            </div>
+                            <div style={{ marginBottom: "3px" }}>
+                                <p className={styles.titleFont}>부산광역시 사상구 XX대로 12 XX아파트 101동 1001호 (123456)</p>
+                            </div>
+                            <div>
+                                <span>010-1234-5678</span>
+                            </div>
+                        </>
+                    }
+                    {!login &&
+                        <AddressSearch></AddressSearch>
+                    }
                     <select className={styles.orderSelect}>
                         <option>배송메모를 선택해주세요</option>
                     </select>
@@ -195,6 +234,48 @@ export default function Order() {
             </div>
             <div className={styles.finalPaymentBtn}>
                 <p>61,000원 결제하기</p>
+            </div>
+        </div>
+    )
+}
+
+function AddressSearch() {
+
+    return(
+        <div className={styles.addressBox}>
+            <div className={styles.bankSelect}>
+                <p className={styles.addressSearchFont}>받는사람<span className={styles.blueText}>*</span></p>
+                <input className={styles.bankView}></input>
+            </div>
+            <div className={styles.bankSelect}>
+                <p className={styles.addressSearchFont}>주소<span className={styles.blueText}>*</span></p>
+                <input className={styles.bankView} placeholder="우편번호"></input>
+                <button className={styles.addressSearchBtn}>주소검색</button>
+            </div>
+            <div className={styles.bankSelect}>
+                <p className={styles.addressSearchFont}></p>
+                <input className={styles.bankView} placeholder="주소"></input>
+            </div>
+            <div className={styles.bankSelect}>
+                <p className={styles.addressSearchFont}></p>
+                <input className={styles.bankView} placeholder="상세주소"></input>
+            </div>
+            <div className={styles.bankSelect}>
+                <p className={styles.addressSearchFont}>전화번호<span className={styles.blueText}>*</span></p>
+                <div className={styles.cashReceiptNumberBox}>
+                    <select className={styles.cashReceiptNumber}>
+                        <option>010</option>
+                        <option>011</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                    -
+                    <input className={styles.cashReceiptNumber}></input>
+                    -
+                    <input className={styles.cashReceiptNumber}></input>
+                </div>
             </div>
         </div>
     )
