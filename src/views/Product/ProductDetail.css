@@ -1,0 +1,249 @@
+.product-detail-render {
+    display: flex;
+    flex-direction: column;
+
+    gap: 100px;
+}
+
+.product-box-contain {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 180px;
+}
+
+.product-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-image {
+    width: 400px;
+    height: 600px;
+    background-color: rgba(167, 167, 167, 1);
+}
+
+.product-previewImage-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-previewImage-image {
+    width: 60px;
+    height: 80px;
+
+    cursor: pointer;
+
+    background-color: rgba(167, 167, 167, 1);
+}
+
+.product-information-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+    height: 600px;
+
+    gap: 10px;
+}
+
+.product-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.product-information-price-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 170px;
+    gap: 15px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.product-information-price-box, 
+.product-information-discount-box, 
+.product-information-discount-period-box, 
+.product-information-delivery-charge-box {
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+    height: 20px;;
+
+    font-size: 15px;
+
+}
+
+.product-information-option-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 400px;
+    height: 150px;
+
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.product-information-color-option,
+.product-information-size-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-information-option {
+    width: 280px;
+    height: 30px;
+    border-radius: 5px;
+
+    font-size: 10px;
+    padding-left: 10px;
+}
+
+.product-information-total-price-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    gap: 20px;
+}
+
+.product-information-button-box {
+    display: flex;
+    gap: 20px;
+}
+
+.product-information-text-purchase-button, 
+.product-information-text-cart-button,
+.product-information-wish-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+
+}
+
+.product-information-text-purchase-button {
+    width: 170px;
+    height: 40px;
+
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.product-information-text-cart-button {
+    width: 170px;
+    height: 40px;
+
+    border: 1px solid rgba(167, 167, 167, 1);
+}
+
+.product-information-wish-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    
+}
+
+.product-detail-mid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+}
+
+.product-detail-information-category {
+    display: flex;
+    justify-content: center;
+}
+
+.product-detail-information-category-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 750px;
+    height: 50px;
+}
+
+.product-category-item {
+    color: gray;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+  }
+  
+  .product-category-item.selected {
+    color: black;
+    font-weight: bold;
+  }
+  
+  .product-category-item:hover {
+    color: darkgray;
+  }
+
+  .product-riview-statistics-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+  }
+
+  .product-riview-statistics-review-count, 
+  .product-riview-statistics-score, 
+  .product-review-statistics-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 380px;
+    height: 120px;
+  }
+
+  .product-riview-statistics-review-count {
+    flex-direction: column;
+  }
+
+  .product-review-user-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-review-user {
+    display: flex;
+    justify-content: left;
+    width: 980px;
+
+    gap: 20px;
+  }
+
+  .product-review-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    width: 140px;
+  }
+
+  .product-review-right {
+    display: flex;
+    justify-content: space-between;
+
+    width: 820px;
+  }
