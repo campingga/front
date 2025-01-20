@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductDetail.css';
 
 // component: 상품정보 컴포넌트 //
@@ -17,18 +17,39 @@ function ProductDetailTop() {
   const [discountPrice, setDiscountPrice] = useState(80000);
   const [discountPeriod, setDiscountPeriod] = useState('2025-01-25');
   const [deliveryCharge, setDeliveryCharge] = useState(3000);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   // state: 상품 옵션 정보 //
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [productCount, setProductCount] = useState(0);
 
   const colors = ['빨강', '파랑', '초록', '검정'];
   const sizes = ['S', 'M', 'L', 'XL'];
 
-   // event handler: 이미지 변경 이벤트 처리 //
+  // event handler: 이미지 변경 이벤트 처리 //
   const onImageChangeClickHandler = (image: string) => {
     setMainImage(image);
   };
+
+  // event handler: 상품 수량 증가이벤트 처리 //
+  const onIncreaseClickHandler = () => {
+    setProductCount(productCount + 1);
+  }
+
+  // event handler: 상품 수량 감소 이벤트 처리 //
+  const onDecreaseClickHandler = () => {
+    if (productCount < 1) {
+      return;
+    }
+    setProductCount(productCount - 1);
+  }
+
+  // effect: 상품 총가격 바라보는 이펙트 //
+  useEffect(()=> {
+    const effectivePrice = discountPrice || price;
+    setTotalPrice(productCount * effectivePrice);
+  }, [productCount, price, discountPrice])
 
   // render: 상품정보 컴포넌트 렌더딩 //
   return (
@@ -78,6 +99,7 @@ function ProductDetailTop() {
         </div>
 
         <div className='product-information-option-box'>
+
           <div className='product-information-color-option'>
             <div className='product-information-text-type-1'>색상</div>
             <select
@@ -95,6 +117,7 @@ function ProductDetailTop() {
               ))}
             </select>
           </div>
+
           <div className='product-information-size-option'>
             <div className='product-information-text-type-1'>사이즈</div>
             <select
@@ -112,11 +135,21 @@ function ProductDetailTop() {
               ))}
             </select>
           </div>
+
+          <div className='product-total-count-box'>
+            <div className='product-total-count-text'>수량</div>
+            <div className='product-total-count-increase-decrease'>
+              <div className='product-total-count-decrease' onClick={onDecreaseClickHandler}>-</div>
+              <div>{productCount}</div>
+              <div className='product-total-count-increase' onClick={onIncreaseClickHandler}>+</div>
+            </div>
+          </div>
+
         </div>
 
         <div className='product-information-total-price-box'>
           <div className='product-information-text-type-3'>총 상품금액</div>
-          <div className='product-information-total-price'>총 상품금액 액수</div>
+          <div className='product-information-total-price'>{totalPrice}</div>
         </div>
 
         <div className='product-information-button-box'>
@@ -168,6 +201,10 @@ function ProductDetailMid() {
       text: "가격 대비 괜찮은 상품입니다.",
     },
   ]);
+
+  // state: 후기 리스트 상태 //
+  // riview-category
+  const [riviewCategory, setRiviewCategory] = useState('recommendation');
 
   
   const totalReviewCount = reviewStatistics.scoreDistribution.reduce(
@@ -227,6 +264,34 @@ function ProductDetailMid() {
             );
           })}
         </div>
+      </div>
+
+      <div className='product-review-user-list-top'>
+
+        <div className='prrduct-riview-user-list-top-box'>
+          <div className='product-riview-total-count'>후기 {reviewStatistics.totalReviews} 건</div>
+          <div className='product-riview-category'>
+            <div
+              className={`product-riview-recommendation ${riviewCategory === 'recommendation' ? 'active' : ''}`}
+              onClick={() => setRiviewCategory('recommendation')}
+            >
+              추천순
+            </div>
+            <div
+              className={`product-riview-latest ${riviewCategory === 'latest' ? 'active' : ''}`}
+              onClick={() => setRiviewCategory('latest')}
+            >
+              최신순
+            </div>
+            <div
+              className={`product-riview-horoscope ${riviewCategory === 'horoscope' ? 'active' : ''}`}
+              onClick={() => setRiviewCategory('horoscope')}
+            >
+              별점순
+            </div>
+          </div>
+        </div>
+        
       </div>
 
       <div className="product-review-user-list">
