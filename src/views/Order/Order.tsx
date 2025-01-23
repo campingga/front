@@ -1,9 +1,39 @@
+import { useLocation } from "react-router-dom";
 import styles from "./Order.module.css";
 import { useEffect, useState } from "react";
+import { getOrderProductList } from "src/apis/order";
+import OrderProductResponseDto from "src/apis/order/response/order-product.response.dto";
+import { ResponseDto } from "src/apis/dto";
+import OrderProductInfo from "src/types/order/orderProductInfo.interface";
+
+
 
 export default function Order() {
     const [selectPayBtn, setSelectPayBtn] = useState(0);
     const [login, setLogin] = useState(false);
+    const location = useLocation();
+    const productList = location.state?.products;
+    const [orderProductList, setOrderProductList] = useState<OrderProductInfo[]>([]);
+
+    const getOrderProductInfoResponse = (responseBody: OrderProductResponseDto | ResponseDto | null) => {
+
+        const message = 
+        !responseBody ? '서버에 문제가 있습니다.' :
+        responseBody.code === 'AF' ? '잘못된 접근입니다.' :
+        responseBody.code === 'DBE' ? '서버에 문제가 있습니다.' : '';
+
+        const isSuccessed = responseBody !== null && responseBody.code === 'SU';
+        if (!isSuccessed) {
+            alert(message);
+            return;
+        }
+        const { products } = responseBody as OrderProductResponseDto;
+        setOrderProductList(products);
+    }
+
+    useEffect(() => {
+        getOrderProductList(productList).then(getOrderProductInfoResponse);
+    }, [])
     // 서버로 보낼 데이터 셋
     // {
     //     "orderRequestDto": {
@@ -68,40 +98,25 @@ export default function Order() {
                 <span className={styles.subject}>주문상품</span>
                 <div className={`${styles.productListBox} ${styles.commonBox}`}>
                     <div className={styles.productList}>
-                        <div className={styles.productBox}>
-                            <div className={styles.productImg}>
-                                <img src="/logo192.png" className={styles.itemImg}></img>
+                        {orderProductList.map((item) => (
+                            <div className={styles.productBox}>
+                                <div className={styles.productImg}>
+                                    <img src="/logo192.png" className={styles.itemImg}></img>
+                                </div>
+                                <div className={styles.productDetail}>
+                                    <p className={styles.titleFont}>{item.name}</p>
+                                    <span className={styles.itemOption}>[옵션: {item.size} / {item.color}]</span>
+                                    <span className={styles.itemOption}>수량: 1개</span>
+                                    <p className={styles.price}>금액:
+                                        <p className={styles.originPrice}>38,000</p>
+                                        <p>{new Intl.NumberFormat('ko-KR').format(item.price)} 원</p>
+                                    </p>
+                                </div>
+                                <div className={styles.deliveryCharge}>
+                                    <p style={{ width: "100%", textAlign: "end", paddingRight: "3px"}}>배송비 3,000원</p>
+                                </div>
                             </div>
-                            <div className={styles.productDetail}>
-                                <p className={styles.titleFont}>룩 플리츠 롱와이드P</p>
-                                <span className={styles.itemOption}>[옵션: FREE/블랙]</span>
-                                <span className={styles.itemOption}>수량: 1개</span>
-                                <p className={styles.price}>금액:
-                                    <p className={styles.originPrice}>38,000</p>
-                                    <p>35,000원</p>
-                                </p>
-                            </div>
-                            <div className={styles.deliveryCharge}>
-                                <p style={{ width: "100%", textAlign: "end", paddingRight: "3px"}}>배송비 3,000원</p>
-                            </div>
-                        </div>
-                        <div className={styles.productBox}>
-                            <div className={styles.productImg}>
-                                <img src="/logo192.png" className={styles.itemImg}></img>
-                            </div>
-                            <div className={styles.productDetail}>
-                                <p className={styles.titleFont}>룩 세더 실켓 7부 박스티</p>
-                                <span className={styles.itemOption}>[옵션: FREE/차콜콜]</span>
-                                <span className={styles.itemOption}>수량: 1개</span>
-                                <p className={styles.price}>금액:
-                                    <p className={styles.originPrice}>27,000</p>
-                                    <p>22,000원</p>
-                                </p>
-                            </div>
-                            <div className={styles.deliveryCharge}>
-                                <p style={{ width: "100%", textAlign: "end", paddingRight: "3px"}}>배송비 3,000원</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                     <table className={styles.priceTable}>
                         <thead className={styles.priceTableThead}>

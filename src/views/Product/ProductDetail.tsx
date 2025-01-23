@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './ProductDetail.css';
+import { useNavigate } from 'react-router-dom';
+
+export type productType = {
+  productId: number
+  count: number
+  size: string
+  color: string
+}
+
 
 // component: 상품정보 컴포넌트 //
 function ProductDetailTop() {
@@ -10,6 +19,21 @@ function ProductDetailTop() {
     'https://via.placeholder.com/100',
     'https://via.placeholder.com/100',
   ]);
+  const navigation = useNavigate();
+
+  const [productList, setProductList] = useState<productType[]>([
+    {
+        productId: 1,
+        count: 1,
+        size: "XL",
+        color : "BLACK"
+    }
+  ]);
+
+  const productBuyBtn = () => {
+    // productList를 state로 넘기기
+    navigation("/order", { state: { products: productList } });
+  };
 
   // state: 상품 가격 정보 //
   const [productName, setProductName] = useState('상품 이름');
@@ -153,7 +177,7 @@ function ProductDetailTop() {
         </div>
 
         <div className='product-information-button-box'>
-          <div className='product-information-text-purchase-button'>구매하기</div>
+          <div className='product-information-text-purchase-button' onClick={productBuyBtn}>구매하기</div>
           <div className='product-information-text-cart-button'>장바구니</div>
           <div className='product-information-wish-button'>★</div>
         </div>
