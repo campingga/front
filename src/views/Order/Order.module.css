@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1440px;
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+    background-color: #5a5a5a;
+    width: 100%;
+    height: 50px;
+}
+
+.titleFont {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.subject {
+    display: flex;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.orderDetailBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fafafa;
+    padding: 1px;
+}
+
+.commonBox {
+    margin: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.addressBox {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 5px;
+}
+
+.nameBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.addressChangeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+    background-color: #fafafa;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.orderSelect {
+    display: flex;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 3px;
+    color: #dbdbdb;
+    font-size: 11px;
+}
+
+.productListBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.productList {
+    padding: 5px;
+}
+
+.productBox {
+    display: flex;
+    width: 100%;
+}
+
+.productImg {
+    flex: 0.1;
+    width: 100%;
+}
+
+.itemImg {
+    width: 100%;
+    height: 100%;
+}
+
+.productDetail {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+    width: 100%;
+    text-align: start;
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.deliveryCharge {
+    display: flex;
+    flex: 0.1;
+    width: 100%;
+    font-size: 11px;
+    color: #a1a1a1;
+    font-weight: 600;
+}
+
+.itemOption {
+    font-size: 11px;
+}
+
+.price {
+    display: flex;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.originPrice {
+    text-decoration: line-through;
+    color: #dbdbdb;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.priceTable {
+    width: 100%;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}
+
+.priceTableTh {
+    background-color: rgb(235, 235, 228);
+    height: 30px;
+    border-bottom: 1px solid black;
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.priceTableTd {
+    height: 60px;
+    font-weight: 700;
+    padding: 5px 0px 5px 0px;
+}
+
+.totalProductPrice {
+    display: flex;
+    border-right: 1px solid #dbdbdb;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 90%;
+}
+
+.redText {
+    color: rgb(215, 45, 45);
+}
+
+.blueText {
+    color: #3971FF;
+}
+
+.couponSelectArea {
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.couponTitleBox {
+    display: flex;
+    align-items: center;
+}
+
+.useCouponBox {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.subTitle {
+    font-size: 11px;
+    font-weight: 800;
+    margin-left: 8px;
+}
+
+.enableCouponList {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.enableCoupon {
+    font-size: 11px;
+    font-weight: 700;
+    color: #5a5a5a;
+    margin-bottom: 3px;
+}
+
+.priceTable:nth-child(1) {
+    border-top: none;
+}
+
+.selectPayment {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 5px;
+}
+
+.selectBtnList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+    gap: 3px;
+}
+
+.selectBtn {
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.selectPayBtn {
+    border: 1px solid #3971FF;
+    color: #3971FF;
+    font-weight: 600;
+}
+
+.paymentDetail {
+    display: flex;
+    padding: 20px;
+    border: 1px solid black;
+    margin-top: 15px;
+}
+
+.finalPaymentBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3971FF;
+    width: 100%;
+    height: 50px;
+    color: #fafafa;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.bankSelectBox {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.bankSelect {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.detailFont {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.bankView {
+    flex: 1;
+    height: 37px;
+    padding: 5px;
+}
+
+.cashReceipt {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.checkBox {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+
+.detailSubTitle {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.checkInput {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.labelBtn {
+    cursor: pointer;
+}
+
+.cashReceiptNumberBox {
+    display: flex;
+    align-items: center;
+}
+
+.cashReceiptNumber {
+    width: 100%;
+    height: 37px;
+    padding: 3px;
+}
+
+.addressSearchBtn {
+    width: 70px;
+    height: 35px;
+    background-color: #fafafa;
+    outline: none;
+    border: 1px solid black;
+}
+
+.addressSearchFont {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.modalArea {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.addressSearchContainer {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+}
+
+.closeBtnBox {
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.closeBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fafafa;
+    outline: none;
+    border: 1px solid black;
+}
