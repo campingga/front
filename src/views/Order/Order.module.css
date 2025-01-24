@@ -362,3 +362,41 @@ body {
     font-weight: 500;
     min-width: 80px;
 }
+
+.modalArea {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.addressSearchContainer {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+}
+
+.closeBtnBox {
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.closeBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fafafa;
+    outline: none;
+    border: 1px solid black;
+}

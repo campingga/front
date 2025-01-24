@@ -5,6 +5,7 @@ import { getOrderProductList } from "src/apis/order";
 import OrderProductResponseDto from "src/apis/order/response/order-product.response.dto";
 import { ResponseDto } from "src/apis/dto";
 import OrderProductInfo from "src/types/order/orderProductInfo.interface";
+import DaumPostCode from 'react-daum-postcode';
 
 
 
@@ -15,6 +16,16 @@ export default function Order() {
     const productList = location.state?.products;
     const [orderProductList, setOrderProductList] = useState<OrderProductInfo[]>([]);
 
+    const [totalItemOriginPrice, setTotalItemOriginPrice] = useState(0);
+    const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
+    const [totalDiscountPrice, setTotalDiscountPrice] = useState(0);
+    const [addressSearchModal, setAddressSearchModal] = useState(false);
+    const [addressData, setAddressData] = useState({ zipCode: "", address: "", recipient: "", addressDetail: "", phoneCenterNumber: "", phoneLastNumber: ""});
+
+
+    const setNumberFormat = (number: number) => {
+        return new Intl.NumberFormat('ko-KR').format(number);
+    }
     const getOrderProductInfoResponse = (responseBody: OrderProductResponseDto | ResponseDto | null) => {
 
         const message = 
@@ -31,9 +42,18 @@ export default function Order() {
         setOrderProductList(products);
     }
 
+    const setOrderItemListPrice = () => {
+        const totalItemPrice = orderProductList.reduce((acc, item) => acc + item.price, 0);
+        setTotalItemOriginPrice(totalItemPrice);
+    }
+
     useEffect(() => {
         getOrderProductList(productList).then(getOrderProductInfoResponse);
     }, [])
+
+    useEffect(() => {
+        setOrderItemListPrice();
+    }, [orderProductList]);
     // 서버로 보낼 데이터 셋
     // {
     //     "orderRequestDto": {
@@ -89,10 +109,13 @@ export default function Order() {
                         </>
                     }
                     {!login &&
-                        <AddressSearch></AddressSearch>
+                        <AddressSearch setAddressSearchModal={setAddressSearchModal} addressData={addressData} setAddressData={setAddressData}></AddressSearch>
                     }
                     <select className={styles.orderSelect}>
                         <option>배송메모를 선택해주세요</option>
+                        <option>배송 전 연락주세요.</option>
+                        <option>부재 시 연락주세요.</option>
+                        <option>부재 시 경비실에 맡겨주세요.</option>
                     </select>
                 </div>
                 <span className={styles.subject}>주문상품</span>
@@ -106,10 +129,10 @@ export default function Order() {
                                 <div className={styles.productDetail}>
                                     <p className={styles.titleFont}>{item.name}</p>
                                     <span className={styles.itemOption}>[옵션: {item.size} / {item.color}]</span>
-                                    <span className={styles.itemOption}>수량: 1개</span>
+                                    <span className={styles.itemOption}>수량: {item.count}개</span>
                                     <p className={styles.price}>금액:
                                         <p className={styles.originPrice}>38,000</p>
-                                        <p>{new Intl.NumberFormat('ko-KR').format(item.price)} 원</p>
+                                        <p>{setNumberFormat(item.price)} 원</p>
                                     </p>
                                 </div>
                                 <div className={styles.deliveryCharge}>
@@ -130,7 +153,7 @@ export default function Order() {
                         <tbody>
                             <tr>
                                 <td className={styles.priceTableTd}>
-                                    <p className={styles.totalProductPrice}>65,000원</p>
+                                    <p className={styles.totalProductPrice}>{setNumberFormat(totalItemOriginPrice)}원</p>
                                 </td>
                                 <td className={styles.priceTableTd}>
                                     <p className={styles.totalProductPrice}>
@@ -250,49 +273,62 @@ export default function Order() {
             <div className={styles.finalPaymentBtn}>
                 <p>61,000원 결제하기</p>
             </div>
+            {addressSearchModal && (
+                <div className={styles.modalArea}>
+                    <AddressSearchModal setAddressSearchModal={setAddressSearchModal} addressData={addressData} setAddressData={setAddressData}></AddressSearchModal>
+                </div>
+            )}
         </div>
     )
 }
 
-function AddressSearch() {
+type AddressSearchModalProps = {
+    setAddressSearchModal: React.Dispatch<React.SetStateAction<boolean>>;
+    addressData: { zipCode: string, address: string, recipient: string, addressDetail: string, phoneCenterNumber: string, phoneLastNumber: string}; // 주소 데이터 타입
+    setAddressData: React.Dispatch<React.SetStateAction<{ zipCode: string, address: string, recipient:string, addressDetail: string, phoneCenterNumber: string, phoneLastNumber: string}>>;
+};
+
+const AddressSearch: React.FC<AddressSearchModalProps> = ({ setAddressSearchModal, addressData, setAddressData }) => {
 
     return(
-        <div className={styles.addressBox}>
-            <div className={styles.bankSelect}>
-                <p className={styles.addressSearchFont}>받는사람<span className={styles.blueText}>*</span></p>
-                <input className={styles.bankView}></input>
-            </div>
-            <div className={styles.bankSelect}>
-                <p className={styles.addressSearchFont}>주소<span className={styles.blueText}>*</span></p>
-                <input className={styles.bankView} placeholder="우편번호"></input>
-                <button className={styles.addressSearchBtn}>주소검색</button>
-            </div>
-            <div className={styles.bankSelect}>
-                <p className={styles.addressSearchFont}></p>
-                <input className={styles.bankView} placeholder="주소"></input>
-            </div>
-            <div className={styles.bankSelect}>
-                <p className={styles.addressSearchFont}></p>
-                <input className={styles.bankView} placeholder="상세주소"></input>
-            </div>
-            <div className={styles.bankSelect}>
-                <p className={styles.addressSearchFont}>전화번호<span className={styles.blueText}>*</span></p>
-                <div className={styles.cashReceiptNumberBox}>
-                    <select className={styles.cashReceiptNumber}>
-                        <option>010</option>
-                        <option>011</option>
-                        <option>016</option>
-                        <option>017</option>
-                        <option>018</option>
-                        <option>019</option>
-                    </select>
-                    -
-                    <input className={styles.cashReceiptNumber}></input>
-                    -
-                    <input className={styles.cashReceiptNumber}></input>
+        <>
+            <div className={styles.addressBox}>
+                <div className={styles.bankSelect}>
+                    <p className={styles.addressSearchFont}>받는사람<span className={styles.blueText}>*</span></p>
+                    <input className={styles.bankView} value={addressData.recipient} onChange={(e) => setAddressData((prev) => ({ ...prev, recipient: e.target.value}))} ></input>
+                </div>
+                <div className={styles.bankSelect}>
+                    <p className={styles.addressSearchFont}>주소<span className={styles.blueText}>*</span></p>
+                    <input className={styles.bankView} placeholder="우편번호" value={addressData.zipCode} readOnly onClick={() => setAddressSearchModal(true)}></input>
+                    <button className={styles.addressSearchBtn} onClick={() => setAddressSearchModal(true)}>주소검색</button>
+                </div>
+                <div className={styles.bankSelect}>
+                    <p className={styles.addressSearchFont}></p>
+                    <input className={styles.bankView} placeholder="주소" value={addressData.address}></input>
+                </div>
+                <div className={styles.bankSelect}>
+                    <p className={styles.addressSearchFont}></p>
+                    <input className={styles.bankView} placeholder="상세주소" value={addressData.addressDetail} onChange={(e) => setAddressData((prev) => ({ ...prev, addressDetail: e.target.value}))}></input>
+                </div>
+                <div className={styles.bankSelect}>
+                    <p className={styles.addressSearchFont}>전화번호<span className={styles.blueText}>*</span></p>
+                    <div className={styles.cashReceiptNumberBox}>
+                        <select className={styles.cashReceiptNumber}>
+                            <option>010</option>
+                            <option>011</option>
+                            <option>016</option>
+                            <option>017</option>
+                            <option>018</option>
+                            <option>019</option>
+                        </select>
+                        -
+                        <input className={styles.cashReceiptNumber} value={addressData.phoneCenterNumber} onChange={(e) => setAddressData((prev) => ({ ...prev, phoneCenterNumber: e.target.value}))}></input>
+                        -
+                        <input className={styles.cashReceiptNumber} value={addressData.phoneLastNumber} onChange={(e) => setAddressData((prev) => ({ ...prev, phoneLastNumber: e.target.value}))}></input>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
@@ -394,6 +430,29 @@ function LiveAccountTransfer() {
                     </div>
                 }
             </div>
+        </div>
+    )
+}
+
+
+
+const AddressSearchModal: React.FC<AddressSearchModalProps> = ({ setAddressSearchModal, setAddressData }) => {
+
+    const onCompletePost = (data: any) => {
+        setAddressSearchModal(false);
+        setAddressData(((prev) => ({
+            ...prev,
+            zipCode:  data.zonecode,
+            address: data.address
+        })))
+    }
+
+    return (
+        <div className={styles.addressSearchContainer}>
+            <div className={styles.closeBtnBox}>
+                <button className={styles.closeBtn} onClick={() => setAddressSearchModal(false)}>X</button> 
+            </div>
+            <DaumPostCode className={styles.postCode} onComplete={onCompletePost}></DaumPostCode>
         </div>
     )
 }
