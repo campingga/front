@@ -1,0 +1,215 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fafafa;
+    gap: 13px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.cartItemInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartInfoTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.cartInfoTableHead {
+    background-color: rgb(235, 235, 228);
+    height: 50px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 11px;
+}
+
+.cartInfoTableCheckTh {
+    width: 3%;
+}
+
+.cartInfoTableTh {
+    width: 10%; /* 일반 열 */
+}
+
+.cartInfoTableDetailTh {
+    width: 30%; /* 상품 정보 열 */
+}
+
+.cartInfoTableBody {
+    border-bottom: 1px solid black;
+}
+
+.cartInfoTableTd {
+    height: 120px;
+    font-weight: 700;
+    padding: 20px 0px 20px 0px;
+}
+
+.productImg {
+    height: 120px;
+    padding: 20px 0px 20px 0px;
+}
+
+.itemImg {
+    width: 100%;
+    height: 100%;
+}
+
+.cartInfoDetailFont {
+    display: flex;
+    border-right: 1px solid #dbdbdb;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.cartInfoTableDetailTd {
+    height: 120px;
+    padding: 20px 0px 20px 0px;
+}
+
+.cartInfoTableDetailBox {
+    width: 100%;
+    height: 100%;
+    gap: 3px;
+    border-right: 1px solid #dbdbdb;
+    text-align: start;
+}
+
+.titleFont {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.itemOption {
+    font-size: 11px;
+}
+
+.itemCountChangeBtnBox {
+    display: flex;
+    border-right: 1px solid #dbdbdb;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+    height: 100%;
+    width: 80%;
+    gap: 8px;
+    padding-right: 20px;
+}
+
+.itemCountChangeBtn {
+    border: none;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.cartInfoTableSelectBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 3px;
+    padding-right: 5px;
+}
+
+.cartInfoTableSelectBtn {
+    width: 80%;
+    height: 25px;
+    font-size: 11px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.cartInfoTableBuyBtn {
+    background-color: black;
+    color: #fafafa;
+}
+
+.cartItemBuyContainer {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding: 10px;
+}
+
+.cartItemBuyBox {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartItemBuyBtn {
+    width: 50px;
+    height: 30px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #fafafa;
+    background-color: #bebebe;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.cartItemOrderBtn {
+    background-color: black;
+}
+
+.cartTotalPriceFont {
+    display: flex;
+    border-right: 1px solid #dbdbdb;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.cartInfoTableBody tr td:last-child .cartTotalPriceFont {
+    border-right: none;
+}
+
+.orderContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.orderBtn {
+    width: 120px;
+    height: 50px;
+    border: none;
+    background-color: #bebebe;
+    border-radius: 5px;
+    color: #fafafa;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.allOrderBtn {
+    background-color: black;
+}
