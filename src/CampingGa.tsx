@@ -12,7 +12,7 @@ function CampingGa() {
     <Routes>
       <Route path='/productDetail' element={<ProductDetail/>} />
       <Route path='/order' element={<Order/>} />
-      <Route path='/cart' element={<Cart/>} />
+      <Route path={`/cart/:userId`} element={<Cart/>} />
 
     </Routes>
 
