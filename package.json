@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "cra-template-typescript": "1.2.0",
     "express": "^4.21.2",
     "node": "^23.5.0",
     "react": "^19.0.0",
     "react-cookie": "^7.2.2",
     "react-dom": "^19.0.0",
+    "react-fontawesome": "^1.7.1",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.4",
-    "zustand": "^5.0.2",
-    "@types/react-dom": "^18.0.0"
+    "zustand": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,5 +46,8 @@
   "description": "test",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react-dom": "^19.0.3"
+  }
 }

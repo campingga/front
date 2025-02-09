@@ -1,0 +1,405 @@
+.product-detail-render {
+    display: flex;
+    flex-direction: column;
+
+    gap: 100px;
+}
+
+.product-box-contain {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 180px;
+}
+
+/* ProductDetailTop */
+
+/* 이미지 */
+
+.product-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-image {
+    width: 400px;
+    height: 600px;
+    background-color: rgba(167, 167, 167, 1);
+}
+
+.product-previewImage-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-previewImage-image {
+    width: 60px;
+    height: 80px;
+
+    cursor: pointer;
+
+    background-color: rgba(167, 167, 167, 1);
+}
+
+/* 상품정보 */
+
+.product-information-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+    height: 600px;
+
+    gap: 10px;
+}
+
+.product-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.product-information-price-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 170px;
+    gap: 15px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.product-information-price-box, 
+.product-information-discount-box, 
+.product-information-discount-period-box, 
+.product-information-delivery-charge-box {
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+    height: 20px;;
+
+    font-size: 15px;
+
+}
+
+/* 상품 옵션 */
+
+.product-information-option-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 400px;
+    height: 150px;
+
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.product-information-color-option,
+.product-information-size-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-information-option {
+    width: 280px;
+    height: 30px;
+    border-radius: 5px;
+
+    font-size: 10px;
+    padding-left: 10px;
+}
+
+/* 수량 */
+
+.product-total-count-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-total-count-increase-decrease {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.product-total-count-decrease, 
+.product-total-count-increase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    width: 10px;
+    height: 10px;
+
+    cursor: pointer;
+}
+
+/* 총 상품 금액 */
+
+.product-information-total-price-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    gap: 20px;
+}
+
+.product-information-button-box {
+    display: flex;
+    gap: 20px;
+}
+
+/* 버튼 */
+
+.product-information-text-purchase-button, 
+.product-information-text-cart-button,
+.product-information-wish-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+
+}
+
+.product-information-text-purchase-button {
+    width: 170px;
+    height: 40px;
+
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.product-information-text-cart-button {
+    width: 170px;
+    height: 40px;
+
+    border: 1px solid rgba(167, 167, 167, 1);
+}
+
+.product-information-wish-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    
+}
+
+/* 후기 및 평점 */
+
+.product-detail-mid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+}
+
+/* 카테고리 */
+
+.product-detail-information-category {
+    display: flex;
+    justify-content: center;
+}
+
+.product-detail-information-category-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 750px;
+    height: 50px;
+}
+
+.product-category-item {
+    color: gray;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+}
+  
+.product-category-item.selected {
+    color: black;
+    font-weight: bold;
+}
+
+.product-category-item:hover {
+    color: darkgray;
+}
+
+
+.product-riview-statistics-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+.product-riview-statistics-review-count, 
+.product-riview-statistics-score {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    width: 380px;
+    height: 120px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.product-riview-statistics-score-text{
+    font-size: 35px;
+}
+
+.product-review-statistics-graph {
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    height: 120px;
+    gap: 10px;
+}
+  
+.score-bar {
+    width: 30px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: black;
+    border-radius: 5px;
+    overflow: hidden;
+    gap: 5px;
+}
+  
+.score-percentage {
+    font-size: 12px;
+    color: black;
+}
+  
+.score-bar-fill-background {
+    width: 20px;
+    height: 100%;
+    background-color: gray;
+    border-radius: 10px;
+    position: relative;
+}
+  
+.score-bar-fill {
+    position: absolute;
+    width: 100%;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    bottom: 0;
+}
+  
+.score-score {
+    font-size: 12px;
+    color: black;
+}
+
+
+.product-riview-statistics-review-count {
+    flex-direction: column;
+}
+
+.product-review-user-list-top {
+    display: flex;
+    justify-content: center;
+}
+
+.prrduct-riview-user-list-top-box {
+    display: flex;
+    justify-content: space-between;
+    width: 980px;
+}
+
+.product-riview-category {
+    display: flex;
+
+    gap: 20px;
+}
+
+.product-riview-category div {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: rgba(167, 167, 167, 1); /* 기본 색상 */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+.product-riview-category div.active {
+    color: rgba(0, 0, 0, 1); /* 선택된 항목 색상 */
+    font-weight: bold; /* 선택된 항목 강조 */
+  }
+
+/* 후기 리스트 */
+
+.product-review-user-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-review-user {
+    display: flex;
+    justify-content: left;
+    width: 980px;
+
+    gap: 20px;
+}
+
+.product-review-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    width: 140px;
+}
+
+.product-review-middle {
+    display: flex;
+
+    width: 780px;
+}
+
+.product-review-right {
+    display: flex;
+    width: 80px;
+    flex-direction: column;
+}
+
+.recommendation-plus {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+}
+
+.recommendation-icon {
+    width: 25px;
+    height: 25px;
+    background-image: url('/public/icon/Recommendation.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
