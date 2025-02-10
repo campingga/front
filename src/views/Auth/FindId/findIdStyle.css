@@ -1,0 +1,76 @@
+#main-id-find {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 1440px;
+}
+
+.id-find-total-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24%;
+    padding: 45px 0px 200px 0px;
+}
+
+.id-find-text {
+    display: flex;
+    padding: 20px 0px 45px 0px;
+    font-size: 18px;
+}
+.radio-box {
+    display: flex;
+    padding-bottom: 20px;
+    gap: 10px;
+}
+
+.radio-email-box,
+.radio-phone-box {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.radio-email,
+.radio-phone {
+    display: flex;
+    font-size: 14px;
+}
+
+.member-name-box,
+.email-phone-find-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.member-name,
+.email-phone-find {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.member-name-input,
+.email-phone-find-input {
+    display: flex;
+    width: 65%;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+}
+
+.check-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background-color: rgba(167, 167, 167, 1);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+}

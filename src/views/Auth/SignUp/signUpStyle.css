@@ -1,0 +1,334 @@
+#main-signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 1440px;
+}
+
+.signUp-total-box {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 45px 0px 65px 0px;
+}
+
+.signUp-text-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.signUp-text {
+    display: flex;
+    font-size: 18px;
+    padding: 20px 0px 30px 0px;
+}
+
+.essential-item-box {
+    display: flex;
+    gap: 2px;
+    padding-bottom: 10px;
+}
+
+.essential-item-symbol {
+    display: flex;
+    color: rgba(255, 0, 0, 1);
+    font-size: 14px;
+}
+
+.essential-item-text {
+    display: flex;
+    font-size: 14px;
+}
+
+.member-information-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid rgba(167, 167, 167, 1);
+    padding-bottom: 10px;
+}
+
+.signUp-name-total-box,
+.signUp-id-total-box,
+.signUp-password-total-box,
+.signUp-password-check-total-box,
+.signUp-phone-number-total-box,
+.signUp-phone-number-check-total-box,
+.signUp-email-total-box,
+.signUp-birth-total-box {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid rgba(167, 167, 167, 1);
+}
+
+.signUp-name-box,
+.signUp-id-box,
+.signUp-password-box,
+.signUp-password-check-box,
+.signUp-phone-number-box,
+.signUp-phone-number-check-box,
+.signUp-email-box,
+.signUp-address-box,
+.signUp-birth-box,
+.signUp-refund-account-box {
+    display: flex;
+    align-items: center;
+    width: 11%;
+    border-right: 1px solid rgba(167, 167, 167, 1);
+    padding-left: 20px;
+    gap: 2px;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.signUp-name-text,
+.signUp-id-text,
+.signUp-password-text,
+.signUp-password-check-text,
+.signUp-phone-number-text,
+.signUp-phone-number-check-text,
+.signUp-email-text,
+.signUp-address-text,
+.signUp-birth-text,
+.signUp-year-text,
+.signUp-month-text,
+.signUp-day-text,
+.signUp-refund-account-text {
+    display: flex;
+    font-size: 14px;
+}
+
+.signUp-name-symbol,
+.signUp-id-symbol,
+.signUp-password-symbol,
+.signUp-password-check-symbol,
+.signUp-phone-number-symbol,
+.signUp-phone-number-check-symbol,
+.signUp-email-symbol {
+    display: flex;
+    font-size: 14px;
+    color: rgba(255, 0, 0, 1);
+}
+
+.signUp-name-input-box,
+.signUp-password-input-box,
+.signUp-password-check-input-box,
+.signUp-phone-number-check-input-box {
+    display: flex;
+    align-items: center;
+    width: 27%;
+    padding-left: 10px;
+}
+
+.signUp-name-input,
+.signUp-password-input,
+.signUp-password-check-input,
+.signUp-phone-number-check-input,
+.signUp-address-input,
+.signUp-address-detail-input {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.signUp-name-input::placeholder,
+.signUp-id-input::placeholder,
+.signUp-password-input::placeholder,
+.signUp-password-check-input::placeholder,
+.signUp-phone-number-input::placeholder,
+.signUp-phone-number-check-input::placeholder,
+.signUp-email1-input::placeholder,
+.signUp-email2-input::placeholder,
+.signUp-address-input::placeholder,
+.signUp-address-detail-input::placeholder {
+    color: rgba(167, 167, 167, 1);
+}
+
+.signUp-id-input-box,
+.signUp-phone-number-input-box,
+.signUp-email-input-box,
+.signUp-birth-input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 27%;
+    padding-left: 10px;
+}
+
+.signUp-id-input,
+.signUp-phone-number-input,
+.signUp-zipcode-input,
+.signUp-account-holder-input,
+.signUp-account-number-input {
+    display: flex;
+    width: 65%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.signUp-duplication-check-button,
+.signUp-authentication-number-send-button,
+.signUp-zipcode-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.signUp-email1-input,
+.signUp-email2-input {
+    display: flex;
+    width: 46%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.signUp-at-symbol {
+    display: flex;
+    font-size: 14px;
+    color: rgba(167, 167, 167, 1);
+}
+
+.signUp-address-total-box,
+.signUp-refund-account-total-box {
+    display: flex;
+    width: 100%;
+    height: 130px;
+    border-bottom: 1px solid rgba(167, 167, 167, 1);
+}
+
+.signUp-address-input-box,
+.signUp-refund-account-input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 27%;
+    padding-left: 10px;
+    gap: 10px;
+}
+
+.signUp-zipcode-input-box,
+.signUp-account-holder-input-box,
+.signUp-bank-input-box,
+.signUp-account-number-input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.signUp-year-input,
+.signUp-month-input,
+.signUp-day-input {
+    display: flex;
+    width: 26%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.signUp-account-holder-text,
+.signUp-bank-text,
+.signUp-bank-dropdown,
+.signUp-account-number-text,
+.clause-agree-text {
+    display: flex;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.signUp-bank-dropdown-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
+    height: 30px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    border-radius: 2px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.signUp-bank-dropdown-icon {
+    display: flex;
+    width: 10px;
+    height: 5px;
+    background-image: url(/public/Vector\ 10.png);
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.clause-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid rgba(167, 167, 167, 1);
+    margin-bottom: 20px;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.clause-agree-box {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-bottom: 1px solid rgba(167, 167, 167, 1);
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.clause-agree-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    background-image: url(/public/Consent-Check-icon.png);
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.clause-content-box {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    border: 1px solid rgba(167, 167, 167, 1);
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.signUp-button-box {
+    display: flex;
+    justify-content: center;
+}
+
+.signUp-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 40px;
+    border-radius: 2px;
+    background-color: rgba(167, 167, 167, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    cursor: pointer;
+}
